@@ -30,7 +30,7 @@ class Handicap
 
     public function getDifferential()
     {
-
-        return $this->differentialArray[3];
+        $numberOfScores = count($this->scores);
+        return $this->differentialArray[$numberOfScores];
     }
 }
