@@ -13,8 +13,6 @@ class Handicap
 {
     private $differentialArray;
 
-    private $differential;
-
     private $scores;
 
     public function __construct(array $scores)
