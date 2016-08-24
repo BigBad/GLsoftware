@@ -11,8 +11,8 @@ namespace GLsoftware\Golf;
 
 class Handicap
 {
+    const SLOPE = 113;
     private $roundsEnteredArray;
-
     private $scores;
 
     public function __construct(array $scores)

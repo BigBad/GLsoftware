@@ -9,7 +9,7 @@
 namespace GLsoftware\Golf;
 
 
-class Score
+class GrossScore
 {
 
 }

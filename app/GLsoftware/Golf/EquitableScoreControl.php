@@ -11,6 +11,16 @@ namespace GLsoftware\Golf;
 
 class EquitableScoreControl
 {
+    private $escResultArray;
+
+    // expecting an object or array GrossScore
+    // with par and score for 18 or 9 holes
+    public function adjustScores(array $scores, $courseHandicap)
+    {
+        foreach($scores as $score){
+
+        }
+    }
 
     // Using a players course handicap which is a whole number
     public function getMaxAllowableHoleScore($par, $courseHandicap)
