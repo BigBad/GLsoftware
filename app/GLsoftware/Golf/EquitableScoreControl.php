@@ -13,16 +13,33 @@ class EquitableScoreControl
 {
     private $escResultArray;
 
-    // expecting an object or array GrossScore
-    // with par and score for 18 or 9 holes
-    public function adjustScores(array $scores, $courseHandicap)
+    /**
+     *
+     * @param array $holeScores
+     * @param $courseHandicap
+     * @return array
+     */
+    public function adjustScores(array $holeScores, $courseHandicap)
     {
-        foreach($scores as $score){
+        foreach($holeScores as $key => $holeScore){
+            $maxHoleScore = $this->getMaxAllowableHoleScore($holeScore['par'],$courseHandicap);
 
+            if($holeScore['score'] >= $maxHoleScore ){
+                $this->escResultArray[] = $maxHoleScore;
+            } else {
+                $this->escResultArray[] = $holeScore['score'];
+            }
         }
+
+        return $this->escResultArray;
     }
 
     // Using a players course handicap which is a whole number
+    /**
+     * @param $par
+     * @param $courseHandicap
+     * @return int
+     */
     public function getMaxAllowableHoleScore($par, $courseHandicap)
     {
         switch(true) {

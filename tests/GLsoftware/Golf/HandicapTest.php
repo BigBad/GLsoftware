@@ -34,4 +34,11 @@ class HandicapTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2,$handicap->getDifferential());
     }
 
+    public function testGetHandicap()
+    {
+        $scores = [75, 83, 105, 85, 95, 83];
+        $handicap = new Handicap($scores);
+        $this->assertEquals(12.16, $handicap->get());
+    }
+
 }

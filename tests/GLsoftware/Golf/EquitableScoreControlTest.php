@@ -25,4 +25,31 @@ class EquitableScoreControlTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(9, $esc->getMaxAllowableHoleScore(4,30));
         $this->assertEquals(10, $esc->getMaxAllowableHoleScore(4,40));
     }
+
+    function testAdjustScores()
+    {
+        $holeScores = [
+            [
+                'par'   => 4,
+                'score' => 8
+            ],
+            [
+                'par'   => 4,
+                'score' => 5
+            ],
+            [
+                'par'   => 5,
+                'score' => 8
+            ],
+            [
+                'par'   => 3,
+                'score' => 3
+            ]
+        ];
+        $courseHandicap = 6;
+        $expectedArray = [6,5,7,3];
+
+        $esc = new EquitableScoreControl();
+        $this->assertEquals($expectedArray,$esc->adjustScores($holeScores,$courseHandicap));
+    }
 }
