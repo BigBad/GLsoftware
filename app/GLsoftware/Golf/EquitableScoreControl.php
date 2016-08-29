@@ -42,6 +42,8 @@ class EquitableScoreControl
      */
     public function getMaxAllowableHoleScore($par, $courseHandicap)
     {
+        $maxScore = $par;
+
         switch(true) {
             case ($courseHandicap <= 9):
                 $maxScore = $par + 2;
