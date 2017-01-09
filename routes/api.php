@@ -15,4 +15,11 @@ use Illuminate\Http\Request;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
+})->middleware('auth:api');
+
+Route::group(['prefix' => 'v1','middleware' => 'auth:api'], function () {
+    //    Route::resource('task', 'TasksController');
+
+    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
+    #adminlte_api_routes
 });
